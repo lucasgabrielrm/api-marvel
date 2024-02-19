@@ -10,14 +10,15 @@ export const Main = () => {
   const cookies = new Cookies();
 
   const [item, setItem] = useState();
-  const [url, setUrl] = useState('http://gateway.marvel.com/v1/public/characters?ts=1&apikey=c632af0fddccdfe6e867bd401e009d45&hash=8ed9db2d8287c6a584ac78867d9332ed');
+  const [url, setUrl] = useState('http://gateway.marvel.com/v1/public/characters?limit=21&ts=1&apikey=c632af0fddccdfe6e867bd401e009d45&hash=8ed9db2d8287c6a584ac78867d9332ed');
 
-  useEffect(() => {
+  const getCharacters = () => {
     const fetch = async () => {
       const res = await axios.get(url);
       setItem(res.data.data.results);
     }
     fetch();
+  };
 
   useEffect(() => {
     async function checkCookies() {
@@ -25,6 +26,7 @@ export const Main = () => {
       const privateKeyCookie = cookies.get('privateKey');
 
       if (!publicKeyCookie || !privateKeyCookie) navigate('/auth');
+      else getCharacters();
     }
     checkCookies();
   }, []);
@@ -34,6 +36,7 @@ export const Main = () => {
       <div className="header">
           <div className="search-bar">
               <input type="search" className="search" placeholder="Search Here" />
+              <button onClick={() => navigate(`/auth`)}>Auth</button>
           </div>
       </div>
       <div className="content">

@@ -13,23 +13,20 @@ export const Auth = () => {
 
     useEffect(() => {
       async function checkCookies() {
-        const publicKeyCookie = cookies.get('publicKey');
-        const privateKeyCookie = cookies.get('privateKey');
-  
-        if (publicKeyCookie && privateKeyCookie) navigate('/home');
+        setPublicKey(cookies.get('publicKey'));
+        setPrivateKey(cookies.get('privateKey'));
       }
       checkCookies();
     }, []);
 
-    const submit = async (e: any) => {
-        e.preventDefault();
+    const submit = async (event: any) => {
+        event.preventDefault();
 
         if (publicKey && privateKey) {
             cookies.set('publicKey', publicKey);
             cookies.set('privateKey', privateKey);
-            console.log('dados', publicKey, privateKey);
-            navigate('/home');
-        }
+            navigate('/');
+        } else alert('You need to fill both Public and Private Keys.')
     };
 
     return (
@@ -39,18 +36,24 @@ export const Auth = () => {
                 name="publicKey"
                 type="text"
                 placeholder="Enter Public Key"
-                onChange={(e) => setPublicKey(e.target.value)}
+                onChange={(event) => setPublicKey(event.target.value)}
             />
             <input
                 className="input"
                 name="privateKey"
                 type="text"
                 placeholder="Enter Private Key"
-                onChange={(e) => setPrivateKey(e.target.value)}
+                onChange={(event) => setPrivateKey(event.target.value)}
             />
-            <button className="btn" type="button" onClick={(e) => submit(e)}>
+            <button className="btn" type="button" onClick={(event) => submit(event)}>
                 Submit
             </button>
+            {(
+                publicKey && privateKey ? 
+                    <button className="btn" type="button" onClick={(event) => navigate('/')}>
+                        Back
+                    </button> : ''
+            )}
         </div>
     );
   }
