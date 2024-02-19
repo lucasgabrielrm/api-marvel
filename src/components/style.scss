@@ -46,8 +46,8 @@ body {
 
 // Card.tsx
 .card {
-    background-color: #B41F23;
-    color: #000000;
+    background-color: #000000;
+    color: #FFFFFF;
     position: relative;
     margin-top: 3rem;
     padding: 1.5px;
@@ -71,7 +71,7 @@ body {
     ::before, ::after {
         content: '';
         position: absolute;
-        background: #B41F23;
+        background: #000000;
         z-index: -1;
     }
 
