@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from 'universal-cookie';
 import { Card } from "./Card"
 
 export const Main = () => {
+
+  let navigate = useNavigate();
+  const cookies = new Cookies();
 
   const [item, setItem] = useState();
   const [url, setUrl] = useState('http://gateway.marvel.com/v1/public/characters?ts=1&apikey=c632af0fddccdfe6e867bd401e009d45&hash=8ed9db2d8287c6a584ac78867d9332ed');
@@ -13,7 +18,17 @@ export const Main = () => {
       setItem(res.data.data.results);
     }
     fetch();
-  }, [url]);
+
+  useEffect(() => {
+    async function checkCookies() {
+      const publicKeyCookie = cookies.get('publicKey');
+      const privateKeyCookie = cookies.get('privateKey');
+
+      if (!publicKeyCookie || !privateKeyCookie) navigate('/auth');
+    }
+    checkCookies();
+  }, []);
+
   return (
     <>
       <div className="header">
