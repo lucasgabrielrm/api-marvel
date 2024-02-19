@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import './Auth.scss';
+import md5 from 'md5';
 
 export const Auth = () => {
 
@@ -25,8 +26,14 @@ export const Auth = () => {
         if (publicKey && privateKey) {
             cookies.set('publicKey', publicKey);
             cookies.set('privateKey', privateKey);
+            convertToMd5();
             navigate('/');
         } else alert('You need to fill both Public and Private Keys.')
+    };
+
+    const convertToMd5 = () => {
+        const hash = md5('1' + privateKey + publicKey);
+        cookies.set('md5', hash);
     };
 
     return (
