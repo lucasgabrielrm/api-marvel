@@ -15,18 +15,18 @@ export const CharactersList = (props: any) => {
             setItem(res.data.data.results);
         }
         //fetch();
-    }, []);
+    }, [url]);
 
-        const loadMore = async () => {
-            let res = (await axios.get(url + `&offset=${item.length}`)).data.data.results;
-            res = item.concat(res);
-            setItem(res);
-            console.log('ITEM', item);
-        }
+    const loadMore = async () => {
+        let res = (await axios.get(url + `&offset=${item.length}`)).data.data.results;
+        res = item.concat(res);
+        setItem(res);
+    }
 
     return (
         <>
             <Header />
+            <div className="content">
             {
                 (!item ? <p>Not Found</p> 
                 : <InfiniteScroll dataLength={item.length} next={loadMore} hasMore={true} loader={<p>Loading...</p>}>
@@ -35,6 +35,7 @@ export const CharactersList = (props: any) => {
                     </div>
                 </InfiniteScroll>)
             }
+            </div>
         </>
     )
 }

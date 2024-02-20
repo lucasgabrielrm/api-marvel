@@ -4,7 +4,6 @@ import { Main } from './components/Main';
 import { Auth } from './components/Auth/Auth';
 import { CreatorsList } from './components/Creators/CreatorsList';
 import { ComicsList } from './components/Comics/ComicsList';
-import { Marvel } from './components/Marvel';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
         <Route path='/auth' element={<Auth />} />
         <Route path='/comics' element={<ComicsList />} />
         <Route path='/creators' element={<CreatorsList />} />
-        <Route path='/marvel' element={<Marvel />} />
       </Routes>
     </>
   );

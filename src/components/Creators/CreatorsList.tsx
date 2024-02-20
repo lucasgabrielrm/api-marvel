@@ -19,21 +19,20 @@ export const CreatorsList = () => {
         const fetch = async () => {
             const res = await axios.get(url);
             setItem(res.data.data.results);
-            console.log('RES', res);
         }
         fetch();
-    }, []);
+    }, [url]);
 
-        const loadMore = async () => {
-            let res = (await axios.get(url + `&offset=${item.length}`)).data.data.results;
-            res = item.concat(res);
-            setItem(res);
-            console.log('ITEM', item);
-        }
+    const loadMore = async () => {
+        let res = (await axios.get(url + `&offset=${item.length}`)).data.data.results;
+        res = item.concat(res);
+        setItem(res);
+    }
 
     return (
         <>
             <Header />
+            <div className="content">
             {
                 (!item ? <p>Not Found</p> 
                 : <InfiniteScroll dataLength={item.length} next={loadMore} hasMore={true} loader={<p>Loading...</p>}>
@@ -42,6 +41,7 @@ export const CreatorsList = () => {
                     </div>
                 </InfiniteScroll>)
             }
+            </div>
         </>
     )
 }

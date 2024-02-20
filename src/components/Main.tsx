@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import { CharactersList } from "./Characters/CharactersList";
-import { Header } from "./Header/Header";
 
 export const Main = () => {
 
@@ -20,16 +19,13 @@ export const Main = () => {
       
     }
     checkCookies();
-  }, []);
+  }, [publicKeyCookie, privateKeyCookie, navigate]);
 
   return (
     <>
-      <Header />
-      <div className="content">
         {
-          md5Hash ? <CharactersList publicKeyCookie={publicKeyCookie} md5Hash={md5Hash} /> : <p>Not Found</p>
+          md5Hash && <CharactersList publicKeyCookie={publicKeyCookie} md5Hash={md5Hash} />
         }
-      </div>
     </>
   );
 }
