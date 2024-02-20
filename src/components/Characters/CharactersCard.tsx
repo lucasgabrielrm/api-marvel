@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-export const Card = ({ data }: any) => {
+export const CharactersCard = ({ data }: any) => {
 
     let navigate = useNavigate();
 

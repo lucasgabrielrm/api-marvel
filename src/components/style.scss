@@ -36,7 +36,7 @@ body {
     }
 }
 
-.grid-characters {
+.grid-items {
     width: 80%;
     margin: 3rem auto;
     display: grid;
@@ -44,7 +44,7 @@ body {
     gap: 1rem;
 }
 
-// Card.tsx
+// CharactersCard.tsx
 .card {
     background-color: #000000;
     color: #FFFFFF;

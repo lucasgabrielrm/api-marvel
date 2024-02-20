@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
-import { CharactersList } from "./CharactersList/CharactersList";
+import { CharactersList } from "./Characters/CharactersList";
 
 export const Main = () => {
 
   let navigate = useNavigate();
   const cookies = new Cookies();
-  let publicKeyCookie = cookies.get('publicKey');;
-  let privateKeyCookie = cookies.get('privateKey');
-  let md5Hash = cookies.get('md5');
+  const publicKeyCookie = cookies.get('publicKey');;
+  const privateKeyCookie = cookies.get('privateKey');
+  const md5Hash = cookies.get('md5');
 
   useEffect(() => {
     async function checkCookies() {
@@ -27,6 +27,9 @@ export const Main = () => {
           <div className="search-bar">
               <input type="search" className="search" placeholder="Search Here" />
               <button onClick={() => navigate(`/auth`)}>Auth</button>
+              <button onClick={() => navigate(`/`)}>Characters</button>
+              <button onClick={() => navigate(`/comics`)}>Comics</button>
+              <button onClick={() => navigate(`/creators`)}>Creators</button>
           </div>
       </div>
       <div className="content">
