@@ -6,6 +6,9 @@ export const Header = () => {
 
     return (
         <div className="header">
+            <div className="bg">
+                <img src="./images/marvel-logo.png" alt="Marvel Comics logo" />
+            </div>
             <div className="search-bar">
                 <input type="search" className="search" placeholder="Search Here" />
                 <button onClick={() => navigate(`/auth`)}>Auth</button>
