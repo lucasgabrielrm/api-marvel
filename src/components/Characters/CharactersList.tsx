@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from "axios";
 import { CharactersCard } from "./CharactersCard"
+import { Header } from "../Header/Header";
 
 export const CharactersList = (props: any) => {
 
@@ -25,14 +26,15 @@ export const CharactersList = (props: any) => {
 
     return (
         <>
-        {
-            (!item ? <p>Not Found</p> 
-            : <InfiniteScroll dataLength={item.length} next={loadMore} hasMore={true} loader={<p>Loading...</p>}>
-                <div className="grid-items">
-                    <CharactersCard data={item} />
-                </div>
-            </InfiniteScroll>)
-        }
+            <Header />
+            {
+                (!item ? <p>Not Found</p> 
+                : <InfiniteScroll dataLength={item.length} next={loadMore} hasMore={true} loader={<p>Loading...</p>}>
+                    <div className="grid-items">
+                        <CharactersCard data={item} />
+                    </div>
+                </InfiniteScroll>)
+            }
         </>
     )
 }

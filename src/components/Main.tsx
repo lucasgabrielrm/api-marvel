@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import { CharactersList } from "./Characters/CharactersList";
+import { Header } from "./Header/Header";
 
 export const Main = () => {
 
@@ -23,15 +24,7 @@ export const Main = () => {
 
   return (
     <>
-      <div className="header">
-          <div className="search-bar">
-              <input type="search" className="search" placeholder="Search Here" />
-              <button onClick={() => navigate(`/auth`)}>Auth</button>
-              <button onClick={() => navigate(`/`)}>Characters</button>
-              <button onClick={() => navigate(`/comics`)}>Comics</button>
-              <button onClick={() => navigate(`/creators`)}>Creators</button>
-          </div>
-      </div>
+      <Header />
       <div className="content">
         {
           md5Hash ? <CharactersList publicKeyCookie={publicKeyCookie} md5Hash={md5Hash} /> : <p>Not Found</p>
