@@ -28,10 +28,10 @@ body {
             width: 350px;
             height: 35px;
             border-radius: 1rem;
-            color: #000000;
+            color: rgb(234, 57, 55);
             font-size: 20px;
             padding: 1.2rem;
-            border: 2px solid #000000;
+            border: 2px solid rgb(234, 57, 55);
         }
     }
 }
@@ -46,7 +46,7 @@ body {
 
 // CharactersCard.tsx
 .card {
-    background-color: #000000;
+    background-color: rgb(234, 57, 55);
     color: #FFFFFF;
     position: relative;
     margin-top: 3rem;
@@ -72,35 +72,4 @@ p {
     color: #000000;
     text-align: center;
     font-size: 25px;
-}
-
-//Marvel.tsx
-.box-content {
-    width: 100%;
-    margin: 0 auto;
-    height: 600px;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7));
-    color: #000000;
-    font-size: 1.3rem;
-    text-align: justify;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    .right-box {
-        flex-basis: 20%;
-    }
-    
-    .left-box {
-        flex-basis: 50%;
-    }
-
-    img {
-        width: 300px;
-        height: 400px;
-        border: 1px solid rgb(0, 0, 0);
-        box-shadow: 0 5px 5px 5px rgba(255,255,255, 0.2);
-        transform: rotate(20deg);
-        transition: 0.5s;
-    }
 }
