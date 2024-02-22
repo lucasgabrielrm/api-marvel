@@ -1,0 +1,41 @@
+.header {
+    height: 10vh;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+    .logo {
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .links {
+        border-bottom: 1px solid black;
+
+        .link-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 2rem;
+    
+            li {
+                list-style: none;
+                padding: 1rem;
+                
+                a {
+                    text-decoration: none;
+                    color: rgb(234, 57, 55);
+                    padding: 1rem;
+                }
+                
+                a:hover {
+                    color: #000;
+                    scale: 1.10;
+                }
+            }
+        }
+    }
+
+}

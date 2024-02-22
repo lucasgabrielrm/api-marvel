@@ -3,6 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from "axios";
 import { CharactersCard } from "./CharactersCard"
 import { Header } from "../Header/Header";
+import './CharactersList.scss';
 
 export const CharactersList = (props: any) => {
 
@@ -14,7 +15,7 @@ export const CharactersList = (props: any) => {
             const res = await axios.get(url);
             setItem(res.data.data.results);
         }
-        //fetch();
+        fetch();
     }, [url]);
 
     const loadMore = async () => {
@@ -27,14 +28,18 @@ export const CharactersList = (props: any) => {
         <>
             <Header />
             <div className="content">
-            {
-                (!item ? <p>Not Found</p> 
-                : <InfiniteScroll dataLength={item.length} next={loadMore} hasMore={true} loader={<p>Loading...</p>}>
-                    <div className="grid-items">
-                        <CharactersCard data={item} />
-                    </div>
-                </InfiniteScroll>)
-            }
+                <div className="page-info">
+                    <h2>CHARACTERS LIST</h2>
+                    <p>See all characters from the Marvel Comics universe.</p>
+                </div>
+                {
+                    (!item ? <p>Not Found</p> 
+                    : <InfiniteScroll dataLength={item.length} next={loadMore} hasMore={true} loader={<p>Loading...</p>}>
+                        <div className="grid-items">
+                            <CharactersCard data={item} />
+                        </div>
+                    </InfiniteScroll>)
+                }
             </div>
         </>
     )
