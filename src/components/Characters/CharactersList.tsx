@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from "axios";
+import Cookies from "universal-cookie";
 import { CharactersCard } from "./CharactersCard"
 import { Header } from "../Header/Header";
 import './CharactersList.scss';
 
-export const CharactersList = (props: any) => {
+export const CharactersList = () => {
+
+    const cookies = new Cookies();
+    const publicKeyCookie = cookies.get('publicKey');
+    const md5Hash = cookies.get('md5');
 
     const [item, setItem] = useState([]);
-    const [url, setUrl] = useState(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${props.publicKeyCookie}&hash=${props.md5Hash}`);
+    const [url, setUrl] = useState(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${publicKeyCookie}&hash=${md5Hash}`);
 
     useEffect(() => {
         const fetch = async () => {

@@ -7,24 +7,21 @@ export const Main = () => {
 
   let navigate = useNavigate();
   const cookies = new Cookies();
-  const publicKeyCookie = cookies.get('publicKey');;
-  const privateKeyCookie = cookies.get('privateKey');
+  const publicKeyCookie = cookies.get('publicKey');
   const md5Hash = cookies.get('md5');
 
   useEffect(() => {
     async function checkCookies() {
-
-      if (!publicKeyCookie || !privateKeyCookie) 
+      if (!md5Hash || !publicKeyCookie)
         navigate('/auth');
-      
     }
     checkCookies();
-  }, [publicKeyCookie, privateKeyCookie, navigate]);
+  }, [md5Hash, publicKeyCookie, navigate]);
 
   return (
     <>
         {
-          md5Hash && <CharactersList publicKeyCookie={publicKeyCookie} md5Hash={md5Hash} />
+          md5Hash && <CharactersList />
         }
     </>
   );
