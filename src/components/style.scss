@@ -1,10 +1,12 @@
+@import '../utilities/variables';
+
 * {
     padding: 0;
     margin: 0;
 }
 
 body {
-    background-color: #F4F4F4;
+    background-color: $primary-color;
 }
 
 // Main.tsx
@@ -28,10 +30,10 @@ body {
             width: 350px;
             height: 35px;
             border-radius: 1rem;
-            color: rgb(234, 57, 55);
+            color: $marvel-red;
             font-size: 20px;
             padding: 1.2rem;
-            border: 2px solid rgb(234, 57, 55);
+            border: 2px solid $marvel-red;
         }
     }
 }
@@ -46,7 +48,7 @@ body {
 
 // CharactersCard.tsx
 .card {
-    background-color: rgb(234, 57, 55);
+    background-color: $marvel-red;
     color: #FFFFFF;
     position: relative;
     margin-top: 3rem;
@@ -69,7 +71,7 @@ body {
     }
 }
 p {
-    color: #000000;
+    color: $secondary-color;
     text-align: center;
 }
 

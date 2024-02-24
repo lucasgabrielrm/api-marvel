@@ -1,16 +1,18 @@
+@import '../../utilities/variables';
+
 .navbar {
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #FFF;
+    background-color: $primary-color;
     z-index: 10;
 
     .logo {
         display: flex;
         justify-content: center;
         height: 10vh;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid $secondary-color;
 
         img {
             height: 100%;
@@ -18,7 +20,7 @@
     }
 
     .links {
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid $secondary-color;
 
         .link-items {
             display: flex;
@@ -32,13 +34,13 @@
                 
                 a {
                     text-decoration: none;
-                    color: rgb(234, 57, 55);
+                    color: $marvel-red;
                     padding: 1rem;
                     font-weight: bold;
                 }
                 
                 a:hover {
-                    color: #000;
+                    color: $secondary-color;
                     scale: 1.10;
                 }
             }
