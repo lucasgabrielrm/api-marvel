@@ -12,21 +12,30 @@ export const CharactersList = () => {
     const publicKeyCookie = cookies.get('publicKey');
     const md5Hash = cookies.get('md5');
 
-    const [item, setItem] = useState([]);
-    const [url, setUrl] = useState(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${publicKeyCookie}&hash=${md5Hash}`);
+    const [items, setItems] = useState<any>([]);
+    const [filteredItems, setFilteredItems] = useState([]);
+    const [filterString, setFilterString] = useState('');
+    const [url, setUrl] = useState(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${publicKeyCookie}&hash=${md5Hash}&limit=50`);
 
     useEffect(() => {
         const fetch = async () => {
             const res = await axios.get(url);
-            setItem(res.data.data.results);
+            setItems(res.data.data.results);
+            setFilteredItems(res.data.data.results);
         }
         fetch();
     }, [url]);
 
     const loadMore = async () => {
-        let res = (await axios.get(url + `&offset=${item.length}`)).data.data.results;
-        res = item.concat(res);
-        setItem(res);
+        let res = (await axios.get(url + `&offset=${items.length}`)).data.data.results;
+        res = items.concat(res);
+        setItems(res);
+        filter(filterString);
+    }
+
+    const filter = async (str: string) => {
+        setFilterString(str);
+        setFilteredItems(items.filter((item: any) => item.name.includes(str.toUpperCase())));
     }
 
     return (
@@ -36,12 +45,15 @@ export const CharactersList = () => {
                 <div className="page-info">
                     <h2>CHARACTERS LIST</h2>
                     <p>See all characters from the Marvel Comics universe.</p>
+                    <div className="search-bar">
+                        <input type="search" className="search" placeholder="Search Here" onChange={e => filter(e.target.value)} />
+                    </div>
                 </div>
                 {
-                    (!item ? <p>Not Found</p> 
-                    : <InfiniteScroll dataLength={item.length} next={loadMore} hasMore={true} loader={<p>Loading...</p>}>
+                    (!filteredItems.length ? <p>Not Found</p> 
+                    : <InfiniteScroll dataLength={filteredItems.length} next={loadMore} hasMore={true} loader={!filterString && <p>Loading...</p>}>
                         <div className="grid-items">
-                            <CharactersCard data={item} />
+                            <CharactersCard data={filteredItems} />
                         </div>
                     </InfiniteScroll>)
                 }
