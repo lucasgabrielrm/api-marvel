@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import DarkMode from '../DarkMode/DarkMode';
 import './Header.scss';
 
@@ -14,10 +15,10 @@ export const Header = (props: any) => {
                 !props.hideNavbar &&
                 <div className="links">
                     <ul className="link-items">
-                        <li><a href="/">Characters</a></li>
-                        <li><a href="/comics">Comics</a></li>
-                        <li><a href="/creators">Creators</a></li>
-                        <li><a href="/auth">Authentication</a></li>
+                        <li><NavLink to="/">Characters</NavLink></li>
+                        <li><NavLink to="/comics">Comics</NavLink></li>
+                        <li><NavLink to="/creators">Creators</NavLink></li>
+                        <li><NavLink to="/auth">Authentication</NavLink></li>
                         <li><DarkMode /></li>
                     </ul>
                 </div>

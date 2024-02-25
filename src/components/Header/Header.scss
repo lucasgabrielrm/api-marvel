@@ -39,7 +39,7 @@
                     font-weight: bold;
                 }
                 
-                a:hover {
+                a.active, a:hover {
                     color: var(--secondary-color);
                     scale: 1.10;
                 }
