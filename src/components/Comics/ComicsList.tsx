@@ -30,7 +30,6 @@ export const ComicsList = () => {
         let res = (await axios.get(url + `&offset=${items.length}`)).data.data.results;
         res = items.concat(res);
         setItems(res);
-        filter(filterString);
     }
 
     const filter = async (str: string) => {
@@ -50,10 +49,10 @@ export const ComicsList = () => {
                     </div>
                 </div>
             {
-                (!filteredItems ? <p>Not Found</p> 
-                : <InfiniteScroll dataLength={filteredItems.length} next={loadMore} hasMore={true} loader={<p>Loading...</p>}>
+                (!filteredItems.length ? <p>Not Found</p> 
+                : <InfiniteScroll dataLength={!filterString ? items.length : filteredItems.length} next={loadMore} hasMore={true} loader={!filterString && <p>Loading...</p>}>
                     <div className="grid-items">
-                        <ComicsCard data={filteredItems} />
+                        <ComicsCard data={!filterString ? items : filteredItems} />
                     </div>
                 </InfiniteScroll>)
             }
