@@ -5,14 +5,14 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     z-index: 10;
 
     .logo {
         display: flex;
         justify-content: center;
         height: 10vh;
-        border-bottom: 1px solid $secondary-color;
+        border-bottom: 1px solid var(--secondary-color);
 
         img {
             height: 100%;
@@ -20,7 +20,7 @@
     }
 
     .links {
-        border-bottom: 1px solid $secondary-color;
+        border-bottom: 1px solid var(--secondary-color);
 
         .link-items {
             display: flex;
@@ -34,13 +34,13 @@
                 
                 a {
                     text-decoration: none;
-                    color: $marvel-red;
+                    color: var(--marvel-red);
                     padding: 1rem;
                     font-weight: bold;
                 }
                 
                 a:hover {
-                    color: $secondary-color;
+                    color: var(--secondary-color);
                     scale: 1.10;
                 }
             }

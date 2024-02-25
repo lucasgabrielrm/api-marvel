@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Modal } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import './ComicsCard.scss';
 
 export const ComicsCard = ({ data }: any) => {
 
-    let navigate = useNavigate();
     const [indexClicked, setIndexClicked] = useState<number>(0);
     const [modalOpen, setModalOpen] = useState(false);
 

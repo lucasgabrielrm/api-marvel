@@ -19,7 +19,7 @@ export const Auth = () => {
         setMd5Hash(cookies.get('md5'));
       }
       checkCookies();
-    }, []);
+    }, [cookies]);
 
     const submit = async (event: any) => {
         event.preventDefault();

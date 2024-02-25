@@ -1,3 +1,4 @@
+import DarkMode from '../DarkMode/DarkMode';
 import './Header.scss';
 
 export const Header = (props: any) => {
@@ -17,12 +18,10 @@ export const Header = (props: any) => {
                         <li><a href="/comics">Comics</a></li>
                         <li><a href="/creators">Creators</a></li>
                         <li><a href="/auth">Authentication</a></li>
+                        <li><DarkMode /></li>
                     </ul>
                 </div>
             }
-            {/* <div className="search-bar">
-                <input type="search" className="search" placeholder="Search Here" />
-            </div> */}
         </nav>
     )
 }
