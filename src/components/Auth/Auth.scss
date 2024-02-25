@@ -12,14 +12,21 @@
   }
   
   .input {
-    width: 15rem;
-    height: 1.5rem;
+    width: 30%;
     margin: 1rem;
     outline: none;
+
+    padding: 1rem;
+    border: 2px solid var(--marvel-red);
+    border-radius: 1rem;
+    color: var(--marvel-red);
+    font-size: 16px;
   }
   
   .btn {
-    width: 4rem;
-    height: 1.5rem;
+    padding: 0.5rem 1rem;
     margin: 12px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
   }
