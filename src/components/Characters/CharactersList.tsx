@@ -44,9 +44,9 @@ export const CharactersList = () => {
             <div className="content">
                 <div className="page-info">
                     <h2>CHARACTERS LIST</h2>
-                    <p>See all characters from the Marvel Comics universe.</p>
+                    <p>See all characters from the Marvel Comics universe.<br /><br />You can also search for specific characters below.</p>
                     <div className="search-bar">
-                        <input type="search" className="search" placeholder="Search Here" onChange={e => filter(e.target.value)} />
+                        <input type="search" className="search" placeholder="Type here" onChange={e => filter(e.target.value)} />
                     </div>
                 </div>
                 {
