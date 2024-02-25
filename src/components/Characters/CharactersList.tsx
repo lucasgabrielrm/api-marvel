@@ -4,7 +4,6 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { CharactersCard } from "./CharactersCard"
 import { Header } from "../Header/Header";
-import './CharactersList.scss';
 
 export const CharactersList = () => {
 

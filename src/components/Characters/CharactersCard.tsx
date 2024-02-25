@@ -1,6 +1,5 @@
 import { Modal } from "@mui/material";
 import { useState } from "react";
-import './CharactersCard.scss';
 
 export const CharactersCard = ({ data }: any) => {
 

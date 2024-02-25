@@ -4,7 +4,6 @@ body {
     background-color: var(--primary-color) !important;
 }
 
-// Main.tsx
 .search-bar {
     width: 100%;
     margin: 1rem 0;
@@ -21,17 +20,21 @@ body {
     }
 }
 
-.grid-items {
-    max-width: 90%;
-    margin: 3rem auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
+.infinite-scroll-component__outerdiv {
+    width: 90%;
 
-p {
-    color: var(--secondary-color);
-    text-align: center;
+    p {
+        text-align: center;
+        margin: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .grid-items {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
 }
 
 .content {
@@ -52,6 +55,31 @@ p {
             font-size: 20px;
         }
     }
+
+    .card {
+        background-color: var(--marvel-red);
+        color: #FFFFFF;
+        position: relative;
+        margin-top: 3rem;
+        padding: 1.5px;
+    
+        img {
+            width: 100%;
+            height: 75%;
+            transition: 0.5s;
+        }
+    
+        :hover img {
+            transform: scale(1.1);
+        }
+    
+        .title {
+            text-align: center;
+            padding: 1rem;
+            font-size: 17px;
+        }
+    }
+        
 }
 
 .modal-details {
@@ -61,4 +89,34 @@ p {
     left: 10% !important;
     background-color: var(--primary-color);
     border: 1px solid var(--secondary-color);
+
+    .modal-card {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        .modal-image {
+            text-align: center;
+            margin: 1rem;
+            
+            img {
+                width: 50%;
+                height: 50%;
+            }
+        }
+    
+        .modal-text {
+            text-align: center;
+            margin: 0 2rem 2rem;
+    
+            p {
+                margin-top: 1rem;
+                text-align: left;
+            }
+        }
+    }
 }
