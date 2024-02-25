@@ -19,6 +19,19 @@
         }
     }
 
+    .menu {
+        display: none;
+        position: fixed;
+        text-align: right;
+        top: 3%;
+        right: 5%;
+        width: 100%;
+
+        img {
+            width: 4rem;
+        }
+    }
+
     .links {
         border-bottom: 1px solid var(--secondary-color);
 
@@ -47,4 +60,23 @@
         }
     }
 
+}
+
+@media (max-width: 720px) {
+    .navbar {
+        .menu {
+            display: block;
+        }
+    
+        .links {
+            .link-items {
+                display: none;
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .link-items.active {
+                display: flex;
+            }
+        }
+    }
 }
